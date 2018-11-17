@@ -6,6 +6,7 @@ namespace TechJobs.Controllers
 {
     public class SearchController : Controller
     {
+        //[Route("/search")]
         public IActionResult Index()
         {
             ViewBag.columns = ListController.columnChoices;
@@ -31,14 +32,14 @@ namespace TechJobs.Controllers
                 {
                     List<Dictionary<string, string>> jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
                     ViewBag.Jobs = jobs;
-                    return View();
+                    return View("Index");
                 }
 
                 else
                 {
                     List<Dictionary<string, string>> jobs = JobData.FindByValue(searchTerm);
                     ViewBag.Jobs = jobs;
-                    return View();
+                    return View("Index");
 
                 }
             }
