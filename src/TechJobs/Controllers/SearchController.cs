@@ -6,7 +6,6 @@ namespace TechJobs.Controllers
 {
     public class SearchController : Controller
     {
-        [HttpGet]
         public IActionResult Index()
         {
             ViewBag.columns = ListController.columnChoices;
@@ -17,7 +16,6 @@ namespace TechJobs.Controllers
         // TODO #1 - Create a Results action method to process 
         // search request and display results
 
-        [HttpPost]
         public IActionResult Results(string searchType, string searchTerm)
 
         {
@@ -26,14 +24,14 @@ namespace TechJobs.Controllers
             {
                 List<Dictionary<string, string>> jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
                 ViewBag.Jobs = jobs;
-                return Redirect("/search");
+                return View();
             }
 
             else
             {
                 List<Dictionary<string, string>> jobs = JobData.FindByValue(searchTerm);
                 ViewBag.Jobs = jobs;
-                return Redirect("/search");
+                return View();
 
             }
 
