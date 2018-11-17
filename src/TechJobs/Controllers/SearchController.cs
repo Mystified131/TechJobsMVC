@@ -20,6 +20,7 @@ namespace TechJobs.Controllers
         public IActionResult Results(string searchType, string searchTerm)
 
         {
+            ViewBag.columns = ListController.columnChoices;
             if (searchTerm == null)
 
             {

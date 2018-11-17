@@ -1,9 +1,7 @@
 ﻿<h1>@ViewBag.title</h1>
 
-@if (ViewBag.jobs == null)
-{
 
-    <form method="post" action="/Search/Results">
+    <form action="/Search/Results">
         <h2>Search by:</h2>
 
         <p>
@@ -28,9 +26,9 @@
         <input type="submit" value="Search" />
     </form>
 
-    <hr />
+<hr />
 
-}
+
 
 @if (ViewBag.jobs != null)
 
