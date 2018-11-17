@@ -7,21 +7,25 @@
 
 <br />
 
+
+
 @foreach (var job in ViewBag.jobs)
 {
-    <table class="job-listing">
+<table class="job-listing">
 
+    <td>
+    <tr>
 
         @foreach (KeyValuePair<string, string> item in job)
         {
             <p>@item.Key : @item.Value</p>
         }
 
+    </tr>
 
+    </td>
 
-    </table>
+</table>
+        }
 
-}
-
-
-
+ 
