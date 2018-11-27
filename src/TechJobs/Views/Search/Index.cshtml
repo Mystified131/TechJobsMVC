@@ -1,30 +1,33 @@
-﻿<h1>@ViewBag.title</h1>
+﻿<head>
+
+</head>
+<h1>@ViewBag.title</h1>
 
 
-    <form action="/Search/Results">
-        <h2>Search by:</h2>
+<form action="/Search/Results">
+    <h2>Search by:</h2>
 
-        <p>
-            @foreach (KeyValuePair<string, string> column in ViewBag.columns)
-            {
-                <span>
-                    <input type="radio"
-                           name="searchType"
-                           id="@column.Key"
-                           value="@column.Key"
-                           checked="@column.Key == 'all''" />
-                    <label for="@column.Key">@column.Value</label>
-                </span>
-            }
-        </p>
+    <p>
+        @foreach (KeyValuePair<string, string> column in ViewBag.columns)
+        {
+            <span>
+                <input type="radio"
+                       name="searchType"
+                       id="@column.Key"
+                       value="@column.Key"
+                       checked="@column.Key == 'all''" />
+                <label for="@column.Key">@column.Value</label>
+            </span>
+        }
+    </p>
 
-        <p>
-            <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
-        </p>
+    <p>
+        <label for="searchTerm">Keyword:</label>
+        <input type="text" name="searchTerm" id="searchTerm" />
+    </p>
 
-        <input type="submit" value="Search" />
-    </form>
+    <input type="submit" value="Search" />
+</form>
 
 <hr />
 
@@ -39,28 +42,30 @@
     <br />
 
 
+        @foreach (var job in ViewBag.jobs)
+        {
+    
+    <table class="job-listing">
 
-    @foreach (var job in ViewBag.jobs)
-    {
-        <table class="job-listing">
+        <td>
 
-            <td>
-            <tr>
 
-                @foreach (KeyValuePair<string, string> item in job)
-                {
-                    <p>@item.Key : @item.Value</p>
-                }
+            @foreach (KeyValuePair<string, string> item in job)
+            {
 
-            </tr>
 
-            </td>
+                <p>@item.Key: @item.Value</p>
+
+
+            }
+        </td>
 
         </table>
-    }
+    
+        }
 
 
 
 
-}
+        }
 
